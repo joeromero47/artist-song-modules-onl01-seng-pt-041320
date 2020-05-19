@@ -7,7 +7,12 @@ class Artist
   include Memorable::InstanceMethods
 
   @@artists = []
-
+  
+  def initialize
+    super 
+    @songs << self 
+    @songs = []
+  end
   def self.find_by_name(name)
     @@artists.detect{|a| a.name == name}
   end
